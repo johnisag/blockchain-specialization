@@ -82,8 +82,8 @@ contract Auction {
         */
         
         // ** Start code here. 2 lines approximately. **/
-        if (tokenDetails[msg.sender].remainingTokens < _count || tokenDetails[msg.sender].remainingTokens < 1) return;
-        if (_itemId > 2) return;
+        if (tokenDetails[msg.sender].remainingTokens < _count || tokenDetails[msg.sender].remainingTokens < 1) { throw; }
+        if (_itemId > 2) { throw; }
 
         //** End code here. **
         
@@ -110,7 +110,7 @@ contract Auction {
     //Hint : Use require to validate if "msg.sender" is equal to the "beneficiary".
     modifier onlyOwner {
         // ** Start code here. 2 lines approximately. **
-        require(msg.sender == beneficiary, "Only contract owner is alloed !");
+        require(msg.sender == beneficiary);
         _;
         //** End code here. **
     }
@@ -136,7 +136,7 @@ contract Auction {
             you need to assign the address of the person obtained above to winners[id] */
 
             // ** Start coding here *** 1 line approximately.
-            winners[id] = bidders[winnerId].addr
+            winners[id] = bidders[winnerId].addr;
                     
             //** end code here*
                 
